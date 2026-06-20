@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanchyt - Intelligent Receipt Scanning. Secure Family Expense Tracking.</title>
+    <meta name="description" content="Sanchyt is a privacy-first family expense manager with intelligent receipt scanning, UPI support, budgets, and insights. Your data stays on your device.">
+    <link rel="icon" type="image/png" href="assets/app_icon.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a { color: #4ade80; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero img {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4ade80;
+            letter-spacing: 1.2px;
+            margin-bottom: 8px;
+        }
+
+        .hero .subtitle {
+            font-size: 14px;
+            color: #888888;
+            margin-bottom: 16px;
+        }
+
+        .hero .tagline {
+            font-size: 22px;
+            color: #cccccc;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .hero .cta {
+            display: inline-block;
+            background: #4ade80;
+            color: #1a1a1a;
+            padding: 14px 36px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .hero .cta:hover { opacity: 0.9; text-decoration: none; }
+
+        /* Section */
+        section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        /* Features grid */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #262626;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid #333;
+        }
+
+        .feature-card .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #4ade80;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 24px;
+            text-align: center;
+        }
+
+        .step {
+            padding: 20px;
+        }
+
+        .step .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #4ade80;
+            color: #1a1a1a;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* Privacy section */
+        .privacy-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .privacy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background: #262626;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+
+        .privacy-item .check {
+            color: #4ade80;
+            font-size: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .privacy-item p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        .privacy-item strong {
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        footer .links a {
+            color: #888;
+            margin: 0 12px;
+            font-size: 13px;
+        }
+
+        /* Divider */
+        .divider {
+            border: none;
+            border-top: 1px solid #333;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .hero .tagline { font-size: 18px; }
+            section h2 { font-size: 26px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <img src="assets/app_icon.png" alt="Sanchyt App Icon">
+        <h1>Sanchyt</h1>
+        <p class="subtitle">Family Expense Manager</p>
+        <p class="tagline">Intelligent receipt scanning. Secure family expense tracking.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.prasoonawasthi.sanchyt" class="cta">Get it on Google Play</a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Key Features -->
+    <section>
+        <h2>Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="icon">📱</div>
+                <h3>Smart Receipt Scanner</h3>
+                <p>Batch scan receipts from gallery or camera. Supports UPI screenshots (GPay, PhonePe, Paytm), paper receipts, and credit card statements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🤖</div>
+                <h3>AI Categorization</h3>
+                <p>Automatic expense categorization using on-device ML Kit OCR with optional Gemini AI for enhanced accuracy across 19+ categories.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">👨‍👩‍👧‍👦</div>
+                <h3>Family Sharing</h3>
+                <p>Shared family account with Admin and Member roles. Track who spends what with invite code joining and member management.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📊</div>
+                <h3>Reports & Insights</h3>
+                <p>Monthly and yearly charts, category breakdowns, spending trends, anomaly detection, and savings suggestions — all computed locally.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">💰</div>
+                <h3>Budgets & Alerts</h3>
+                <p>Set category-wise budgets with alerts at 50%, 75%, and 90% thresholds. Track monthly goals with visual progress bars.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Receipt images never leave your device. Only extracted text data is stored. Biometric lock, encrypted storage, and full data export/delete.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🔄</div>
+                <h3>Recurring Expenses</h3>
+                <p>Auto-track rent, EMIs, subscriptions, and maid salary. Set day-of-month and let the app handle the rest.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">📤</div>
+                <h3>Export & Import</h3>
+                <p>Export reports as PDF, CSV, or JSON. Import expenses from files. Full data portability with GDPR-compliant delete option.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🌐</div>
+                <h3>Works Offline</h3>
+                <p>Full offline support with automatic sync when back online. Cached data ensures uninterrupted access to your expenses.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- How It Works -->
+    <section>
+        <h2>How Receipt Scanning Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <h3>Select</h3>
+                <p>Pick receipt images from gallery or capture with camera. Batch select up to 50 at once.</p>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <h3>Scan</h3>
+                <p>On-device OCR extracts amount, merchant, date, and category. Blur detection warns about unclear photos.</p>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <h3>Review</h3>
+                <p>Edit extracted details, check confidence scores, and resolve duplicates before saving.</p>
+            </div>
+            <div class="step">
+                <div class="num">4</div>
+                <h3>Save</h3>
+                <p>All expenses saved in one batch. See total impact on your budget instantly.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Supported Receipt Types -->
+    <section>
+        <h2>Supported Receipt Types</h2>
+        <div class="features" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="feature-card" style="text-align: center;">
+                <div class="icon">💳</div>
+                <h3>UPI Payments</h3>
+                <p>Google Pay, PhonePe, Paytm, and other UPI apps</p>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="icon">🏦</div>
+                <h3>Credit Card Statements</h3>
+                <p>Multi-transaction parsing from CC statement screenshots</p>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="icon">🧾</div>
+                <h3>Paper Receipts</h3>
+                <p>Store bills, restaurant checks, fuel station receipts</p>
+            </div>
+            <div class="feature-card" style="text-align: center;">
+                <div class="icon">📜</div>
+                <h3>Any Screenshot</h3>
+                <p>Payment confirmations, order summaries, invoices</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Privacy & Security -->
+    <section>
+        <h2>Privacy & Security</h2>
+        <div class="privacy-highlights">
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>Images stay on device</strong> — receipt photos are never uploaded. Only extracted text data is stored in the cloud.</p>
+            </div>
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>On-device processing</strong> — OCR runs locally using Google ML Kit. No server-side image processing.</p>
+            </div>
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>Encrypted storage</strong> — sensitive data stored with AES encryption. API keys secured in device Keychain/Keystore.</p>
+            </div>
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>Biometric lock</strong> — protect app access with fingerprint or face recognition.</p>
+            </div>
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>Delete your data</strong> — permanently wipe all your data anytime. GDPR and DPDP compliant.</p>
+            </div>
+            <div class="privacy-item">
+                <span class="check">&#10003;</span>
+                <p><strong>Export your data</strong> — download all your expenses as PDF, CSV, or JSON at any time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sanchyt. Built by Prasoon Awasthi.</p>
+        <div class="links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:prasoon.awasthi@gmail.com">Contact</a>
+            <a href="https://github.com/Parivrajaka/sanchyt">GitHub</a>
+        </div>
+    </footer>
+
+</body>
+</html>
