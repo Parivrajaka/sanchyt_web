@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sanchyt Feature Graphic — 1024x500</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .frame {
+            width: 1024px;
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f2918 50%, #1a1a1a 100%);
+            border-radius: 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Subtle grid pattern */
+        .frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(74, 222, 128, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(74, 222, 128, 0.05) 0%, transparent 40%);
+        }
+
+        /* Decorative circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(74, 222, 128, 0.1);
+        }
+        .circle-1 { width: 400px; height: 400px; top: -100px; right: -80px; }
+        .circle-2 { width: 300px; height: 300px; bottom: -80px; left: -60px; border-color: rgba(74, 222, 128, 0.07); }
+        .circle-3 { width: 200px; height: 200px; top: 50px; left: 100px; border-color: rgba(74, 222, 128, 0.05); }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            padding: 0 60px;
+        }
+
+        .left {
+            flex: 1;
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #166534, #14532D);
+            border: 2px solid rgba(74, 222, 128, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 32px rgba(74, 222, 128, 0.15);
+        }
+
+        .app-name {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #4ade80;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 22px;
+            color: #cccccc;
+            font-weight: 300;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 16px;
+        }
+
+        .pill {
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 13px;
+            color: #4ade80;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        /* Right side — mock phone cards */
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transform: perspective(800px) rotateY(-8deg) rotateX(2deg);
+        }
+
+        .mock-card {
+            background: #262626;
+            border: 1px solid #333;
+            border-radius: 14px;
+            padding: 16px 20px;
+            width: 320px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Balance card mock */
+        .balance-card {
+            background: linear-gradient(135deg, #166534, #14532D);
+            border: 1px solid rgba(74, 222, 128, 0.25);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .balance-label {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .balance-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .balance-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .balance-item {
+            text-align: center;
+        }
+
+        .balance-item .label {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .balance-item .value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        /* Expense row mock */
+        .expense-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .expense-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .expense-info {
+            flex: 1;
+        }
+
+        .expense-name {
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .expense-merchant {
+            font-size: 11px;
+            color: #888;
+        }
+
+        .expense-amount {
+            font-size: 14px;
+            font-weight: 600;
+            color: #f87171;
+            text-align: right;
+        }
+
+        .expense-amount.income {
+            color: #4ade80;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame">
+        <!-- Decorative circles -->
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+        <div class="circle circle-3"></div>
+
+        <div class="content">
+            <div class="left">
+                <img src="assets/app_icon.png" class="app-icon">
+                <div class="app-name">Sanchyt</div>
+                <div class="tagline">AI-Powered Receipt Scanning.<br>Secure Family Expense Tracking.</div>
+                <div class="features-row">
+                    <div class="pill">UPI & CC Scanning</div>
+                    <div class="pill">Family Sharing</div>
+                    <div class="pill">Privacy First</div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="mock-card balance-card">
+                    <div class="balance-label">Monthly Spending</div>
+                    <div class="balance-amount">&#8377;24,580</div>
+                    <div class="balance-row">
+                        <div class="balance-item">
+                            <div class="label">Budget</div>
+                            <div class="value">&#8377;50,000</div>
+                        </div>
+                        <div class="balance-item">
+                            <div class="label">Remaining</div>
+                            <div class="value">&#8377;25,420</div>
+                        </div>
+                        <div class="balance-item">
+                            <div class="label">Income</div>
+                            <div class="value">&#8377;85,000</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mock-card">
+                    <div class="expense-row">
+                        <div class="expense-icon">&#128722;</div>
+                        <div class="expense-info">
+                            <div class="expense-name">Weekly Groceries</div>
+                            <div class="expense-merchant">BigBasket</div>
+                        </div>
+                        <div class="expense-amount">-&#8377;2,340</div>
+                    </div>
+                </div>
+
+                <div class="mock-card">
+                    <div class="expense-row">
+                        <div class="expense-icon">&#9981;</div>
+                        <div class="expense-info">
+                            <div class="expense-name">Fuel</div>
+                            <div class="expense-merchant">HP Petrol Pump</div>
+                        </div>
+                        <div class="expense-amount">-&#8377;1,800</div>
+                    </div>
+                </div>
+
+                <div class="mock-card">
+                    <div class="expense-row">
+                        <div class="expense-icon">&#128176;</div>
+                        <div class="expense-info">
+                            <div class="expense-name">Salary</div>
+                            <div class="expense-merchant">Company Transfer</div>
+                        </div>
+                        <div class="expense-amount income">+&#8377;85,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
